@@ -1,10 +1,11 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder, get};
+use actix_web::{ App, HttpResponse, HttpServer, Responder, get};
 
 #[get("/")]
 async fn index() -> impl Responder {
     HttpResponse::Ok().body("Hello world!")
 }
 
+#[actix_rt::main]
 async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
